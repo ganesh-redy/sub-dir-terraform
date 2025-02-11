@@ -1,6 +1,6 @@
 provider "google" {
     project = "mythic-inn-420620"
-    zone="us-cetral1"
+    zone="us-cetral1-a"
   
   
 }
