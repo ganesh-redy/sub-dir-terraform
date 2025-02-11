@@ -3,6 +3,7 @@ pipeline{
     environment {
      GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-key')
   }
+  stages{
     stage ("connecting to git") {
         steps{
           git branch : "main", url : "https://github.com/ganesh-redy/sub-dir-terraform.git"
@@ -34,4 +35,8 @@ pipeline{
             }
         }
     }
+
+  }
+    
 }
+
