@@ -5,7 +5,7 @@ pipeline{
   }
     stage ("connecting to git") {
         steps{
-          git branch : "main", url : "https://github.com/ganesh-redy/instance-template.git"
+          git branch : "main", url : "https://github.com/ganesh-redy/sub-dir-terraform.git"
         }
     }
     stage("subfolder"){
