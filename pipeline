@@ -1,0 +1,37 @@
+pipeline{
+    agent any
+    environment {
+     GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-key')
+  }
+    stage ("connecting to git") {
+        steps{
+          git branch : "main", url : "https://github.com/ganesh-redy/instance-template.git"
+        }
+    }
+    stage("subfolder"){
+        steps{
+            dir("okay"){
+                sh """ 
+                  
+                  terraform init
+                  terraform plan
+                  terraform apply --auto-approve
+                
+                """
+            }
+        }
+    }
+     stage("subfolder-2"){
+        steps{
+            dir("okay/sub"){
+                sh """ 
+                  
+                  terraform init
+                  terraform plan
+                  terraform apply --auto-approve
+                
+                """
+            }
+        }
+    }
+}
